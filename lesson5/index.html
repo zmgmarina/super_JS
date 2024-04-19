@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="script.js"></script>
+
+    <script>
+      const product = {
+        name: "table",
+        price: 300,
+        color: "black",
+        count: 2,
+        userRegistred: false,
+        registration: function () {
+          this.userRegistred = true;
+        },
+        countProduct: function () {
+          if (this.count > 0) {
+            console.log("Вы можете купить данный товар");
+          } else {
+            console.log("Данный товар нельзя добавить в корзину");
+          }
+        },
+        buyProduct: function () {
+          if (this.userRegistred) {
+            console.log("Товар в корзине");
+          } else {
+            console.log(
+              "Вам необходимо зарегестрироваться, сначала выполнить product.registration"
+            );
+          }
+        },
+      };
+
+      product.buyProduct();
+      product.registration();
+      product.buyProduct();
+
+      // console.log(product);
+
+      // const productNew = {
+      //     pathImg: 'photo.png',
+      //     productText: 'cool table'
+      // }
+      // console.log(productNew);
+
+      // let text = productNew.productText;
+      // console.log(text);
+
+      // productNew.link = 'product/linkname.html';
+      // console.log(productNew);
+
+      // delete productNew.productText;
+      // console.log(productNew);
+
+      //     const car = {
+      //     make: "Audi",
+      //     model: "A5",
+      //     year: 2023,
+      //     color: "red",
+      //     passengers: 2,
+      //     power: 249,
+      //     odometer: 0,
+      //     engineIsStarted: false,
+      //     startEngine: function () {
+      //       this.engineIsStarted = true;
+      //     },
+      //     stopEngine: function () {
+      //       this.engineIsStarted = false;
+      //     },
+      //     haveRoadTrip: function (distance) {
+      //       if (this.engineIsStarted) {
+      //         this.odometer += distance;
+      //       } else {
+      //         alert("Сначала запустите двигатель!");
+      //       }
+      //     },
+      //   };
+
+      //   HW
+
+      // Задание 1
+      // Дан объект numbers. Необходимо в консоль вывести все значения больше или равные 3.
+
+      // const numbers = {
+      //   keyin1: 1,
+      //   keyin2: 2,
+      //   keyin3: 3,
+      //   keyin4: 4,
+      //   keyin5: 5,
+      //   keyin6: 6,
+      //   keyin7: 7,
+      // };
+
+      // for (const key in numbers) {
+      //   let value = numbers[key];
+      //   if (value >= 3) {
+      //     console.log(value);
+      //   }
+      // }
+
+      // Задание 2
+      // Необходимо из объекта, который лежит в константе post вывести значения, к которым приписан комментарий, в консоль.
+
+      // const post = {
+      //   author: "John", // вывести этот текст
+      //   postId: 23,
+      //   comments: [
+      //     {
+      //       userId: 10,
+      //       userName: "Alex",
+      //       text: "lorem ipsum",
+      //       rating: {
+      //         likes: 10,
+      //         dislikes: 2, // вывести это число
+      //       },
+      //     },
+      //     {
+      //       userId: 5, // вывести это число
+      //       userName: "Jane",
+      //       text: "lorem ipsum 2", // вывести этот текст
+      //       rating: {
+      //         likes: 3,
+      //         dislikes: 1,
+      //       },
+      //     },
+      //   ],
+      // };
+
+      // console.log(post.author);
+      // console.log(post.comments[0].rating.dislikes);
+      // console.log(post.comments[1].userId);
+      // console.log(post.comments[1].text);
+
+      // Задание 3
+      // Дан массив products, необходимо цену каждого продукта уменьшить на 15% используя метод forEach.
+
+      // const products = [
+      //   {
+      //     id: 3,
+      //     price: 200,
+      //   },
+      //   {
+      //     id: 4,
+      //     price: 900,
+      //   },
+      //   {
+      //     id: 1,
+      //     price: 1000,
+      //   },
+      // ];
+
+      // products.forEach((product) => {
+      //   product.price = product.price - (product.price * 15) / 100;
+      //   console.log(product.price);
+      // });
+
+      //     Задание 4
+      // 1. Необходимо вывести в консоль массив продуктов в котором есть хоть одна фотография используя метод filter. Исходные данные - массив products.
+      // 2. Необходимо отсортировать массив products используя метод sort по цене, начиная с самой маленькой, заканчивая самой большой ценой, после чего вывести отсортированный массив в консоль.
+
+      // const products = [
+      //   {
+      //     id: 3,
+      //     price: 127,
+      //     photos: ["1.jpg", "2.jpg"],
+      //   },
+      //   {
+      //     id: 5,
+      //     price: 499,
+      //     photos: [],
+      //   },
+      //   {
+      //     id: 10,
+      //     price: 26,
+      //     photos: ["3.jpg"],
+      //   },
+      //   {
+      //     id: 8,
+      //     price: 78,
+      //   },
+      // ];
+
+      // const productsPhotos = products.filter(
+      //   (product) => product.photos && product.photos.length > 0
+      // );
+      // console.log(productsPhotos);
+
+      // const sortedProducts = products.sort((a, b) => a.price - b.price);
+      // console.log(sortedProducts);
+
+      // **Задание 5**
+      // Дано 2 массива,  необходимо объединить 2 этих массива, чтобы значения первого массива были ключами, а значения второго массива — значениями.
+
+      // const en = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+      // const ru = [
+      //   "понедельник",
+      //   "вторник",
+      //   "среда",
+      //   "четверг",
+      //   "пятница",
+      //   "суббота",
+      //   "воскресенье",
+      // ];
+
+      // const week = {}; // создали объект
+
+      //   if (en.length === ru.length) {
+      //     for (let i = 0; i < en.length; i++) {
+      //     week[en[i]] = ru[i];
+      //     }
+      //   }
+      //   else {
+      //     console.log("Массивы не равны");
+      //   }
+      //   console.log(week);
+
+      // const week = {
+      //   1: "Понедельник",
+      //   2: "Вторник",
+      //   3: "Среда",
+      //   4: "Четверг",
+      // };
+
+      // console.log(week[2]);
+
+      // console.log();
+
+      // const user = {
+      //   name: "Marina",
+      //   surname: "Po",
+      //   age: 42,
+      // };
+
+      // console.log(user);
+
+      // user.patronymic = prompt("Отчество");
+      // console.log(user);
+
+      // delete user.age;
+      // console.log(user);
+
+      //массив объектов и метод map(Метод для формирования нового массива на  основе исходного)
+
+      const arraySalary = [1000, 2000, 2500, 3000];
+      const upSalary = arraySalary.map((salary) => salary * 2);
+      console.log(upSalary);
+
+      const arrayFilter = arraySalary.filter((salary) => salary >= 2500); //Метод filter
+      console.log(arrayFilter);
+
+      console.log(arraySalary.some((salary) => salary > 2000)); // метод some (есть или нет)
+
+      // мы хотим получить только список фамилий студентов, которые отработали 120 часов и более
+
+      const studentsPracticeTime = [
+        {
+          name: "Иванов",
+          practiceTime: 50,
+        },
+        {
+          name: "Петров",
+          practiceTime: 120,
+        },
+        {
+          name: "Смирнов",
+          practiceTime: 135,
+        },
+        {
+          name: "Кузнецова",
+          practiceTime: 80,
+        },
+        {
+          name: "Тихонова",
+          practiceTime: 160,
+        },
+      ];
+
+      const dataForTable = studentsPracticeTime.map((student) => {
+        if (student.practiceTime < 120) {
+          return {
+            // Мы возвращаем новый объект, более удобный для вывода.
+            Student: student.name,
+            Practice: "Not passed",
+          };
+        } else {
+          return {
+            Student: student.name,
+            Practice: "Passed",
+          };
+        }
+      });
+      console.table(dataForTable); //  метод  table выводит данные в виде таблицы
+
+      //Метод filter
+
+      const studentsPassedPractice = studentsPracticeTime.filter((student) => {
+        if (student.practiceTime < 120) return false;
+        return true;
+      });
+      console.log(studentsPassedPractice);
+      // Получили новый массив, в котором только те студенты, кто уже прошел практику.
+      console.table(studentsPassedPractice);
+
+      //Метод reduce
+
+      // посчитаем общее количество часов
+      //       Первое значение - это функция обратного вызова, которая будет получать
+      // значение аккумулятора (acc) при каждой итерации; и текущий элемент массива
+      // (student).
+      const totalTime = studentsPracticeTime.reduce((acc, student) => {
+        return acc + student.practiceTime;
+      }, 0); //это первоначальное значение аккумулятора - 0.
+
+      console.log(totalTime);
+
+      const arrayNum = [1, 3, 6, 10, 2];
+      console.log(arrayNum.reduce((a, b) => a + b)); // сумма
+      console.log(arrayNum.reduce((a, b) => a + b) / arrayNum.length); // среднее арифметическое
+
+      // возвести в квадрат значения
+      const obj = {
+        x: 1,
+        y: 2,
+        z: 3,
+      };
+      console.log(obj);
+
+      for (const item in obj) {
+        obj[item] = obj[item] ** 2;
+      }
+      console.log(obj);
+
+      //Найдите сумму элементов приведенного объекта.
+
+      // const objNumber = {
+      //   key1: {
+      //     key1: 1,
+      //     key2: 2,
+      //     key3: 3,
+      //   },
+      //   key2: {
+      //     key1: 4,
+      //     key2: 5,
+      //     key3: 6,
+      //   },
+      //   key3: {
+      //     key1: 7,
+      //     key2: 8,
+      //     key3: 9,
+      //   },
+      // };
+
+      // let sum = 0;
+      // for (const keyUp in objNumber) {
+      //   // console.log(objNumber[keyUp]);
+      //   for (const keyIn in objNumber[keyUp]) {
+      //     console.log(objNumber[keyUp][keyIn]);
+      //     sum += objNumber[keyUp][keyIn];
+      //   }
+      // }
+      // console.log(sum);
+
+      // const riddles = {
+      //   guestion: "Летит - гудит, сядет - молчит",
+      //   answer: "Самолет",
+      //   func: function askQuestion() {
+      //     let userAnswer = prompt(this.guestion);
+      //     userAnswer = userAnswer.toLocaleLowerCase;
+      //     if (userAnswer === this.answer) {
+      //       console.log("молодец");
+      //     }
+      //     else {
+      //       console.log("Не верно");
+      //     }
+      //   },
+      // };
+
+      // riddles.func();
+
+      const student = {
+        firstName: "Ivan",
+        lastName: "Petrov",
+        age: 21,
+      };
+
+      const {firstName, lastName, age} = student;
+      console.log(student);
+
+
+    </script>
+  </body>
+</html>

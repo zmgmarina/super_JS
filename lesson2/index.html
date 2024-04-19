@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="alert('Товар добавлен в корзину')">КУПИТЬ</button>
+    <!--onclick -в момент клика -->
+
+    <a onclick="confirm('Закрыть каталог');" href="#">Закрыть диалог</a>
+
+    <script>
+      //   let userAnswer = prompt("Зимой и летом одним цветом");
+      //   console.log(letAnswer);
+
+      //   if (userAnswer === "") {
+      //     console.log("Пусто");
+      //   } else {
+      //     if (userAnswer === "елка") {
+      //       alert("Правильный ответ");
+      //     } else {
+      //       alert("Неверно");
+      //     }
+      //   }
+
+      //   if (userAnswer === "") {
+      //     //toLocaleLowerCase - привели в нижнему регистру
+      //     alert("Пустое значение");
+      //   } else if (userAnswer.toLowerCase() === "елка") {
+      //     alert("Правильный ответ");
+      //   } else {
+      //     alert("Неверно");
+      //   }
+
+      //тернарный оператор  (условие) ? ДА : НЕТ
+
+      // (userAnswer === "елка") ? alert("Правильный ответ") : alert();
+
+      //СОКРАТИМ
+
+      // alert((userAnswer === "елка") ? "Правильный ответ" : "Неверно")
+
+      // проверка кода
+
+      //   let pass = prompt('ВВедите пароль'); //123
+      //   pass = Number(pass);
+      //   if (pass === 123) {
+      //     alert('проходим дальше');
+      //   } else {
+      //     alert('дальше нельзя');
+
+      //     //преобразовываем код
+      //     let pass = Number(prompt('Введите пароль'));
+      //     alert((pass === 123) ? 'проходим дальше' : 'дальше нельзя');
+      // }
+
+      //Задание 1.
+
+      // let age = Number(prompt('Ваш возраст'));
+      // console.log(`Вам ${age} лет`);
+
+      // let name = prompt('Ваше имя');
+      // console.log(`Добро пожаловать на сайт ${name}`);
+
+      //Задание 2.
+
+      // let a = 13;
+      // let b = 5;
+
+      // let c = a % b;
+      // console.log(c);
+
+      // let d = '2' * '3';
+      // console.log(d);
+
+      // let z = Number('2');
+      // let l = Number('3');
+      // let sum = z + l;
+      // console.log(sum);
+
+      //Задание 3.
+      //   let numOne = Number(prompt("Введите первое число"));
+      //   let numTwo = Number(prompt("Введите второе число"));
+
+      //   console.log(
+      //     `
+      //     Сумма чисел равна ${numOne + numTwo}
+      //     Разность чисел равна ${numOne - numTwo}
+      //     Произведение чисел равно ${numOne * numTwo}
+      //     Частное чисел равно ${numOne / numTwo}
+      //     Остаток от деления чисел равно ${numOne % numTwo}
+      //     `
+      //   );
+
+      //Задание 4.
+      // console.log(String('a' + true));
+      // console.log(Number(true));
+      // console.log(true + 1);
+      // console.log(true - true);
+      // console.log(true + true);
+      // console.log(String(true) + Number(true));
+
+      //Задание 5.
+
+      // let number = Number(prompt("Введите число"));
+
+      // if (number > 5) {
+      //     console.log("Число больше пяти");
+      // } else if (number < 5) {
+      //     console.log("Число меньше пяти");
+      // } else if (number === 5) {
+      //     console.log("Число равно пяти");
+      // }
+
+      // let test1 = 10;
+      // let test2 = 10;
+
+      // console.log((test1 === test2) ? "Значения равны" : "Значения не равны ");
+
+      // let numOne = Number(prompt("Введите первое число"));
+      // let numTwo = Number(prompt("Введите второе число"));
+      // console.log((numOne < numTwo) ? "Первое число минимальное" : "Второе число минимальное");
+
+      // let num = Number(prompt("Введите число"));
+      // console.log((15 > num > 0) ? "Число меньше 15 и больше нуля" : "Число не подходит под данные условия");
+
+      // ДОМАШНЕЕ ЗАДАНИЕ
+
+      // Задание1.
+
+      let num1 = Number(prompt("Введите первое число"));
+      let num2 = Number(prompt("Введите второе число"));
+
+      console.log((num1 <= 1) ? "Первое число равно или меньше 1" : "Число не подходит под данные условия");
+      console.log((num2 >= 3) ? "Второе число больше или равно 3" : "Число не подходит под данные условия");
+
+      // Задание2.
+
+      let test = true;
+
+      if (test === true) {
+        console.log("+++");
+      } else {
+        console.log("---");
+      }
+
+      console.log((test === true) ? "+++" : "---");
+
+    // Задание3.
+
+    let day = Number(prompt("Введите число от 1 до 31"));
+
+    
+    if (day >= 1 && day <= 10) {
+        console.log("Число попадает в первую декаду месяца");
+        
+    } else if (day > 10 && day <= 20) {
+        console.log("Число попадает вo вторую декаду месяца");
+
+    } else if  (day > 12 && day <= 31) {
+        console.log("Число попадает в третью декаду месяца");
+
+    }  else {
+        console.log("Число не попадает в диапазон от 1 до 31");
+    } 
+
+
+
+       
+   
+        
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="spread.js"></script>
+    <script src="lexical.js"></script>
+    <script src="hw.js"></script>
+
+    <script>
+
+            //   function factorial(number) {
+            //     if (number == 1) {
+            //       return 1;
+            //     }
+            //     return factorial(number - 1) * number;
+            //   }
+            //   console.log(factorial(4));
+
+            /* 1. Создайте функцию mergeArrays, которая принимает два массива и возвращает новый массив, содержащий все элементы из обоих массивов. Используйте spread оператор для объединения массивов.*/
+            // mergeArrays([1, 2, 3], [4, 5, 6]);  Ожидаемый результат: [1, 2, 3, 4, 5, 6];
+
+            const arr1 = [1, 2, 3];
+            const arr2 = [4, 5, 6];
+
+            const mergeArrays = (arr1, arr2) => [...arr1, ...arr2];
+
+            console.log(mergeArrays(arr1, arr2));
+
+            /* 2.  Создайте функцию removeDuplicates, которая принимает любое количество аргументов и возвращает новый массив, содержащий только уникальные значения. Используйте rest оператор для сбора всех аргументов в массив а затем filter для определения дубликатов.*/
+            //  removeDuplicates(1, 2, 3, 2, 4, 1, 5);  Ожидаемый результат: [1, 2, 3, 4, 5];
+
+            function removeDuplicates(...args) {
+              // если много аргументов
+              return args.filter((value, index) => args.indexOf(value) === index);
+            }
+            console.log(removeDuplicates(1, 2, 3, 2, 4, 1, 5));
+
+            //   Напишите функцию getEvenNumbers, которая принимает массив
+            // чисел в качестве аргумента и возвращает новый массив,
+            // содержащий только четные числа.
+
+            const getEvenNumbers = (array) => array.filter((num) => num % 2 === 0);
+
+            console.log(getEvenNumbers([1, 6, 7, 4, 5]));
+
+            //  Задача: Напишите функцию calculateAverage, которая принимает
+            // массив чисел в качестве аргумента и возвращает среднее значение
+            // этих чисел.
+
+            const calculateAverage = (arr) => {
+              const sum = arr.reduce((acc, num) => acc + num, 0);
+              return sum / arr.length;
+            };
+            console.log(calculateAverage([1, 1, 1, 1]));
+
+            //  Напишите функцию capitalizeFirstLetter, которая принимает строку в
+            // качестве аргумента и возвращает новую строку, в которой первая
+            // буква каждого слова является заглавной.
+
+            let str = "первым было слово";
+
+            const capitalizeFirstLetter = (str) => {
+              return str
+                .split(" ") //преобразовали в массив
+                .map(
+                  (word) =>
+                    word.charAt(0).toUpperCase() + word.substring(1, word.length)
+                )
+                .join(" "); // преобразовали в строку
+            };
+            console.log(capitalizeFirstLetter(str));
+
+            //  Напишите функцию createCalculator, которая принимает начальное  значение и возвращает объект с двумя методами: add и subtract.  Метод add должен увеличивать значение на переданное число, а метод subtract должен уменьшать значение на переданное число. Значение должно быть доступно только через методы объекта, а не напрямую.
+
+            function createCalculator(initialValue) {
+              let value = initialValue; //замыкаем входящее значение
+              return {
+                add: function (num) {
+                  value += num;
+                },
+
+                subtract: function (num) {
+                  value -= num;
+                },
+
+                getValue: function () {
+                  return value;
+                },
+              };
+            }
+
+            const calculate = createCalculator(10);
+            calculate.add(3);
+            calculate.subtract(5);
+            console.log(calculate.getValue());
+
+            // Напишите функцию createGreeting, которая принимает имя пользователя и возвращает функцию, которая будет выводить приветствие с использованием этого имени.
+            // // Пример использования:
+            // const greeting = createGreeting('John');
+            // greeting(); // Ожидаемый результат: "Hello, John!"
+
+          //   function createGreeting(name) {
+          //     return function () {
+          //       console.log("Hello, " + name);
+          //     };
+          //   }
+
+          //   const greeting = createGreeting(prompt("Введите ваше имя"));
+          //   greeting();
+
+            //       Лексическое окружение — это механизм в JavaScript, который позволяет функции во время её вызова получать доступ к переменным,
+            // константам и всему, что ей нужно. Каждый раз при вызове функции создаётся что-то вроде объекта словаря, который записывает все значения переменных и
+            // констант внутри функции, а также тех переменных и констант вне функции, к которым она обращается.
+
+            //********************************************************************************************************************************
+
+            // Задача: Напишите функцию createPasswordChecker, которая принимает допустимую длину пароля в качестве аргумента и
+            // возвращает функцию для проверки введенного пароля. Возвращаемая функция должна принимать пароль и возвращать true, если его длина соответствует допустимой, и false в противном случае.
+
+            function createPasswordChecker(passwordLength) {
+              return function (userPassword) {
+                if (userPassword.length <= passwordLength) {
+                  return true;
+                }
+                return false;
+              };
+            }
+            const isPasswordValid = createPasswordChecker(8);
+            console.log(isPasswordValid("passwords"));
+            console.log(isPasswordValid("secret"));
+
+            //   Напишите рекурсивную функцию sumDigits, которая принимает положительное целое число в качестве аргумента и возвращает сумму его цифр.
+
+            function sumDigits(num) {
+              if (num < 10) {
+                return num;
+              } else {
+                return (num % 10) + sumDigits(Math.floor(num / 10));
+              }
+            }
+
+            console.log(sumDigits(123)); // Ожидаемый результат: 6 (1 + 2 + 3)
+            console.log(sumDigits(456789)); // Ожидаемый результат: 39 (4 + 5 + 6 + 7 + 8 + 9);
+
+
+      
+    </script>
+  </body>
+</html>
