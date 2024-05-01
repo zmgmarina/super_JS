@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Создать интерактивную веб-страницу, где пользователи могут вводить текст, сохранять его в localStorage,
+а затемагружать или удалять сохраненные данные.
+Разработка Интерфейса:
+Создать HTML-страницу с:
+● Одним текстовым полем для ввода данных пользователем.
+● Тремя кнопками: "Сохранить", "Загрузить" и "Очистить".
+● Местом для отображения сохраненного текста.
+Программирование Логики на JavaScript:
+1. При нажатии на "Сохранить", введенный текст должен сохраняться в localStorage.
+2. При нажатии на "Загрузить", текст из localStorage должен отображаться на странице.
+3. При нажатии на "Очистить", сохраненный текст должен быть удален из localStorage, и соответствующее
+сообщение отображается на странице. -->
+    <textarea
+      class="input"
+      rows="5"
+      cols="40"
+      placeholder="Введите текст"
+    ></textarea>
+    <button class="but-save">Сохранить</button>
+    <button class="but-load">Загрузить</button>
+    <button class="but-clear">Очистить</button>
+    <div class="text-container"></div>
+
+    <script>
+        
+      document.querySelector(".but-save").addEventListener("click",() => {
+        const textInput = document.querySelector(".input").value;
+        localStorage.setItem('savedText', textInput);
+        document.querySelector(".text-container").textContent = "Текст успешно сохранен!"
+      });
+
+      document.querySelector(".but-load").addEventListener("click", () => {
+        const savedText = localStorage.getItem('savedText');
+        document.querySelector(".text-container").textContent = savedText ? savedText : "Введите текст";
+      });
+
+      document.querySelector(".but-clear").addEventListener("click", () => {
+        localStorage.removeItem('savedText');
+        document.querySelector(".text-container").textContent = "Текст успешно удален!"
+      });
+
+      
+
+      
+    </script>
+  </body>
+</html>
